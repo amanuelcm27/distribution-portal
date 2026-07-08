@@ -3,49 +3,20 @@
 import React, { useState } from 'react'
 import { Bell, AlertCircle, ChevronDown, LogOut } from 'lucide-react'
 import { useOmcStore } from '@/store/useOmcStore'
-import { formatLiters, formatPercent } from '@/lib/utils'
 
 export function TopHeader() {
-  const { user, omcProfile, quotaPeriod, stationAlerts, pendingActions, language, setLanguage } = useOmcStore()
+  const { user, omcProfile, stationAlerts, pendingActions, language, setLanguage } = useOmcStore()
   const [showUserMenu, setShowUserMenu] = useState(false)
 
-  if (!user || !quotaPeriod) return null
+  if (!user) return null
 
   const alertCount = stationAlerts.length
   const actionCount = pendingActions.length
 
   return (
     <header className="fixed top-0 left-0 right-0 h-14 bg-[var(--sidebar)] text-white border-b border-border flex items-center justify-between px-6 z-40 ml-64">
-      {/* Left: Breadcrumbs/Info */}
-      <div className="flex items-center gap-4">
-        <div className="text-sm text-gray-300">
-          {omcProfile?.name} • License: {omcProfile?.license_number}
-        </div>
-      </div>
-
-      {/* Center: Quota Period Indicators */}
-      <div className="flex items-center gap-2 flex-1 justify-center px-4">
-        {Object.entries(quotaPeriod.quotas_by_fuel).map(([fuelType, quota]) => (
-          <div key={fuelType} className="flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full text-xs">
-            <div className="font-medium">{fuelType.slice(0, 3)}</div>
-            <div className="text-foreground-secondary">
-              {formatLiters(quota.remaining)}
-            </div>
-            <div className={`
-              px-2 py-0.5 rounded font-medium
-              ${quota.health === 'healthy' ? 'bg-green-100 text-green-700' : ''}
-              ${quota.health === 'moderate' ? 'bg-yellow-100 text-yellow-700' : ''}
-              ${quota.health === 'low' ? 'bg-red-100 text-red-700' : ''}
-              ${quota.health === 'exhausted' ? 'bg-gray-100 text-gray-700' : ''}
-            `}>
-              {quota.health}
-            </div>
-          </div>
-        ))}
-        <div className="text-xs text-gray-200 px-3">
-          {quotaPeriod.days_remaining} days left
-        </div>
-      </div>
+      {/* Left and center stats removed per request */}
+      <div className="flex-1" />
 
       {/* Right: Actions */}
       <div className="flex items-center gap-4">

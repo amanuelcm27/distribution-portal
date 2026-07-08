@@ -28,14 +28,7 @@ export default function QuotasPage() {
         <p className="text-foreground-secondary">Manage your fuel allocation and track utilization</p>
       </div>
 
-      {/* Info Banner */}
-      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-start gap-3">
-        <Info className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
-        <div className="text-sm text-blue-900">
-          <p className="font-medium">Quotas are set by EPEA</p>
-          <p className="mt-1">Your fuel quotas are determined by the government and cannot be modified. Contact your regional office to request quota adjustments.</p>
-        </div>
-      </div>
+      {/* Info Banner removed per request */}
 
       {/* Tabs */}
       <div className="flex gap-2 border-b border-border">

@@ -27,18 +27,7 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* Critical Alerts Banner */}
-      {stationAlerts.some(a => a.severity === 'critical') && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-          <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={20} />
-          <div>
-            <h3 className="font-semibold text-red-900">Critical Station Alerts</h3>
-            <p className="text-sm text-red-800 mt-1">
-              {stationAlerts.filter(a => a.severity === 'critical').length} stations need immediate attention
-            </p>
-          </div>
-        </div>
-      )}
+      {/* Critical Alerts Banner removed per UI update */}
 
       {/* Row 1: Quota Health Cards */}
       <div>
