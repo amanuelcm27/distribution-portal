@@ -60,18 +60,12 @@ export function Sidebar() {
     <aside className="layout-sidebar">
       {/* Company Card */}
       <div className="border-b border-white border-opacity-20 p-4">
-        <div className="mb-2">
-          <h1 className="text-lg font-bold text-white">APL</h1>
-          <p className="text-xs text-gray-300">{omcProfile?.name}</p>
-        </div>
-        <div className="text-xs text-gray-400 space-y-1">
-          <p>License: {omcProfile?.license_number}</p>
-          <p className="flex items-center gap-1">
-            <span className={`w-2 h-2 rounded-full ${
-              omcProfile?.compliance_status === 'compliant' ? 'bg-green-400' : 'bg-yellow-400'
-            }`}></span>
-            {omcProfile?.compliance_status === 'compliant' ? 'Compliant' : 'Warning'}
-          </p>
+        <div className="mb-2 flex items-center gap-3">
+          <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-white font-bold">FDS</div>
+          <div>
+            <h1 className="text-lg font-bold text-white">Distribution portal</h1>
+            <p className="text-xs text-gray-300">Fuel Distribution System</p>
+          </div>
         </div>
       </div>
 

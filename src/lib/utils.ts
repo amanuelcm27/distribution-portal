@@ -91,6 +91,20 @@ export function dispatchStatusClass(status: DispatchStatus): string {
   return classes[status]
 }
 
+export function dispatchStatusBorderClass(status: DispatchStatus): string {
+  const classes: Record<DispatchStatus, string> = {
+    CREATED: 'border-l-4 border-purple-500',
+    APPROVED: 'border-l-4 border-blue-500',
+    LOADED: 'border-l-4 border-cyan-500',
+    IN_TRANSIT: 'border-l-4 border-amber-500',
+    ARRIVED: 'border-l-4 border-indigo-500',
+    VERIFIED: 'border-l-4 border-green-500',
+    CLOSED: 'border-l-4 border-gray-400',
+    CANCELLED: 'border-l-4 border-red-500',
+  }
+  return classes[status]
+}
+
 // Formatting functions
 export function formatNumber(value: number): string {
   return new Intl.NumberFormat('en-US').format(value)

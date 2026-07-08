@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useOmcStore } from '@/store/useOmcStore'
-import { dispatchStatusClass } from '@/lib/utils'
+import { dispatchStatusClass, dispatchStatusBorderClass } from '@/lib/utils'
 
 export default function DispatchBoardPage() {
   const { dispatches } = useOmcStore()
@@ -37,11 +37,11 @@ export default function DispatchBoardPage() {
                       <p className="text-sm text-foreground-secondary text-center py-12">No dispatches</p>
                     ) : (
                       statusDispatches.map(dispatch => (
-                        <div
-                          key={dispatch.dispatch_id}
-                          className={`p-3 rounded-md border-l-4 cursor-pointer hover:shadow-md transition ${dispatchStatusClass(dispatch.status)}`}
-                        >
-                          <p className="font-mono text-xs font-medium mb-2 text-foreground">{dispatch.dispatch_number}</p>
+                          <div
+                            key={dispatch.dispatch_id}
+                            className={`p-3 rounded-md cursor-pointer hover:shadow-md transition bg-card text-foreground ${dispatchStatusBorderClass(dispatch.status)}`}
+                          >
+                            <p className="font-mono text-xs font-medium mb-2 text-foreground">{dispatch.dispatch_number}</p>
                           <div className="space-y-1.5 text-xs">
                             <p className="font-medium text-foreground truncate">{dispatch.tanker_plate}</p>
                             <p className="text-foreground-secondary truncate">{dispatch.destination_station_name}</p>

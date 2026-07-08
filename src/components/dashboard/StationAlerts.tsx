@@ -8,29 +8,24 @@ import { formatPercent } from '@/lib/utils'
 export function StationAlerts() {
   const { stationAlerts } = useOmcStore()
 
-  const criticalAlerts = stationAlerts.filter(a => a.severity === 'critical')
+  const visibleAlerts = stationAlerts.filter(a => a.severity !== 'critical')
 
   return (
     <div className="card">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-semibold text-foreground">Station Alerts</h3>
-        {criticalAlerts.length > 0 && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">
-            {criticalAlerts.length} Critical
-          </span>
-        )}
       </div>
       <div className="space-y-2">
-        {stationAlerts.length === 0 ? (
+        {visibleAlerts.length === 0 ? (
           <p className="text-sm text-foreground-secondary text-center py-6">No alerts</p>
         ) : (
-          stationAlerts.map(alert => (
+          visibleAlerts.map(alert => (
             <div
               key={alert.alert_id}
               className={`p-3 rounded text-sm border-l-4 ${
-                alert.severity === 'critical'
-                  ? 'border-red-500 bg-red-50 text-red-900'
-                  : 'border-yellow-500 bg-yellow-50 text-yellow-900'
+                alert.severity === 'warning'
+                  ? 'border-yellow-500 text-foreground'
+                  : 'border-yellow-500 text-foreground'
               }`}
             >
               <div className="flex items-start gap-2">

@@ -117,9 +117,7 @@ export default function LiftingPage() {
                   {mockLiftingSlots.map(slot => (
                     <tr
                       key={slot.slot_id}
-                      className={`border-b border-border hover:bg-surface transition text-foreground ${
-                        slot.status === 'SCHEDULED' && !slot.assigned_tanker_id ? 'bg-yellow-50 text-yellow-900' : ''
-                      }`}
+                      className={`border-b border-border hover:bg-surface transition text-foreground`}
                     >
                       <td className="px-4 py-2 font-medium">{slot.depot_name}</td>
                       <td className="px-4 py-2">

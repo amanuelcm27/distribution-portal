@@ -14,16 +14,16 @@ const actionIcons = {
 }
 
 const priorityColors = {
-  critical: 'border-l-4 border-red-500 bg-red-50 text-red-900',
-  high: 'border-l-4 border-orange-500 bg-orange-50 text-orange-900',
-  medium: 'border-l-4 border-yellow-500 bg-yellow-50 text-yellow-900',
-  low: 'border-l-4 border-blue-500 bg-blue-50 text-blue-900',
+  critical: 'border-l-4 border-red-500 text-foreground',
+  high: 'border-l-4 border-orange-500 text-foreground',
+  medium: 'border-l-4 border-yellow-500 text-foreground',
+  low: 'border-l-4 border-blue-500 text-foreground',
 }
 
 export function ActionQueue() {
   const { pendingActions, removePendingAction } = useOmcStore()
 
-  const topActions = pendingActions.slice(0, 5)
+  const topActions = pendingActions.filter(a => a.action_type !== 'critical_station').slice(0, 5)
 
   return (
     <div className="card">
